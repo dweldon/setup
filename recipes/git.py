@@ -9,7 +9,7 @@ class Git(Recipe):
     def execute(self):
         self.install_package('git')
         self.banner()
-        name = raw_input('What is your full name?\n').strip().lower()
+        name = raw_input('What is your full name?\n').strip()
         email = raw_input('What is your email?\n').strip().lower()
         self.run('git config --global user.name "%s"' % name, False)
         self.run('git config --global user.email "%s"' % email, False)
