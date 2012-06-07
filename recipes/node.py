@@ -22,7 +22,7 @@ class Node(Recipe):
     def node_version(self):
         """Fetch the latest version string in a form like 'v0.6.16'"""
         html = urllib2.urlopen('http://nodejs.org/dist/latest/').read()
-        return re.search(r'>node-(.*)\.tar\.gz<', html).group(1)
+        return re.search(r'>node-(v\d+\.\d+\.\d+)\.tar\.gz<', html).group(1)
 
     def is_valid(self):
         return True
