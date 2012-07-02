@@ -7,6 +7,7 @@ class Packages(Recipe):
         self.packages = ['aptitude',
                          'build-essential',
                          'curl',
+                         'tree',
                          'gedit-plugins',
                          'gnote',
                          'indicator-multiload',
