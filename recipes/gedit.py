@@ -12,8 +12,7 @@ class Gedit(Recipe):
             '.local/share/gtksourceview-3.0/styles')
         self.dir_tools = os.path.join(self.home, '.config/gedit/tools')
         self.dir_plugins = os.path.join(self.home, '.local/share/gedit/plugins')
-        self.filename = os.path.join(os.path.dirname(__file__),
-            '../tools/run-python')
+        self.filename = os.path.join(os.path.dirname(__file__), '../tools/run')
 
     def execute(self):
         cwd = os.getcwd()
@@ -49,7 +48,7 @@ class Gedit(Recipe):
 
     def is_valid(self):
         return (os.path.exists(os.path.join(self.dir_styles, 'inkpot-color-scheme.xml')) and
-                os.path.exists(os.path.join(self.dir_tools, 'run-python')) and
+                os.path.exists(os.path.join(self.dir_tools, 'run')) and
                 os.path.exists(os.path.join(self.dir_lang, 'styl.lang')) and
                 os.path.exists(os.path.join(self.dir_lang, 'jade.lang')) and
                 os.path.exists(os.path.join(self.dir_lang, 'coffee_script.lang')))
