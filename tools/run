@@ -17,6 +17,8 @@ elif [ "$(echo $GEDIT_CURRENT_DOCUMENT_NAME | grep '\.js$')" ]; then
   node $GEDIT_CURRENT_DOCUMENT_NAME
 elif [ "$(echo $GEDIT_CURRENT_DOCUMENT_NAME | grep '\.py$')" ]; then
   python $GEDIT_CURRENT_DOCUMENT_NAME
+elif [ "$(echo $GEDIT_CURRENT_DOCUMENT_NAME | grep '\.rb$')" ]; then
+  ruby $GEDIT_CURRENT_DOCUMENT_NAME
 else
   echo "I do not know how to run ${GEDIT_CURRENT_DOCUMENT_NAME}"
 fi
