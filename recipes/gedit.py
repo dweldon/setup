@@ -35,6 +35,7 @@ class Gedit(Recipe):
         os.chdir(self.dir_styles)
         subprocess.call('rm -f *.xml*', shell=True)
         self.wget('http://ideasman42-dev-scripts.googlecode.com/svn/trunk/cfg/gedit/inkpot-color-scheme.xml', False)
+        self.wget('https://raw.github.com/wavded/gedit-coffeescript/master/rubycius-mod.xml', False)
 
         # copy the plugins
         os.chdir(self.dir_plugins)
@@ -48,6 +49,7 @@ class Gedit(Recipe):
 
     def is_valid(self):
         return (os.path.exists(os.path.join(self.dir_styles, 'inkpot-color-scheme.xml')) and
+                os.path.exists(os.path.join(self.dir_styles, 'rubycius-mod.xml')) and
                 os.path.exists(os.path.join(self.dir_tools, 'run')) and
                 os.path.exists(os.path.join(self.dir_lang, 'styl.lang')) and
                 os.path.exists(os.path.join(self.dir_lang, 'jade.lang')) and
