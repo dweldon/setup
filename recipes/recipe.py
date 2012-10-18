@@ -40,6 +40,9 @@ class Recipe(object):
     def install_package(self, name):
         return self.run('apt-get install -y ' + name)
 
+    def remove_package(self, name):
+        return self.run('apt-get remove -y ' + name)
+
     def replace_text(self, filename, old, new, as_root=True):
         command = 'sed -i "s/%s/%s/" %s' % (old, new, filename)
         self.run(command, as_root)

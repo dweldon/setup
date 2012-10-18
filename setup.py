@@ -35,7 +35,6 @@ if __name__ == '__main__':
     execute_recipe(Examples(user))
     execute_recipe(Packages(user))
     execute_recipe(Bashrc(user))
-    execute_recipe(Python(user))
     execute_recipe(Node(user))
     execute_recipe(Gedit(user))
     execute_recipe(Git(user))
