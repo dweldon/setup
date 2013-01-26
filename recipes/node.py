@@ -2,6 +2,7 @@ from recipe import Recipe
 import os
 import urllib2
 import re
+import multiprocessing
 
 class Node(Recipe):
     def __init__(self, user):
@@ -48,7 +49,14 @@ class Node(Recipe):
         self.run('./configure --prefix=' + self.dir_local, False)
 
         self.progress('building')
+        self.run('make -j %d' % (multiprocessing.cpu_count() + 1), False)
+
+        self.progress('installing')
         self.run('make install', False)
+        # http://tnovelli.net/blog/blog.2011-08-27.node-npm-user-install.html
+        nm1 = os.path.join(self.dir_local, 'lib', 'node_modules')
+        nm2 = os.path.join(self.home, '.node_modules')
+        self.run('ln -s %s %s' % (nm1, nm2), False)
 
         self.progress('cleaning up')
         self.run('rm -rf ' + self.dir_build, False)
