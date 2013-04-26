@@ -17,7 +17,7 @@ class Fstab(Recipe):
         if (self.is_success("grep '/dev/sda' " + self.filename) and
             self.is_ok('Add SSD tweaks')):
             old = 'ext4    errors=remount-ro 0'
-            new = 'ext4    discard,noatime,errors=remount-ro 0'
+            new = 'ext4    defaults,discard,noatime,errors=remount-ro 0'
             self.replace_text(self.filename, old, new)
 
     def is_valid(self):

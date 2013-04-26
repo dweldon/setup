@@ -10,6 +10,9 @@ $ cd setup && sudo ./setup.py
 After Installation
 ------------------
 
+### privacy
+Turn off "online search" and "record activity" in the privacy settings.
+
 ### indicator-multiload
 Add indicator-multiload to the list of startup applications.
 

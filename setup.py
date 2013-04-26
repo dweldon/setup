@@ -3,9 +3,9 @@
 import os
 import sys
 from recipes.examples import Examples
+from recipes.apport import Apport
 from recipes.packages import Packages
 from recipes.bashrc import Bashrc
-from recipes.python import Python
 from recipes.node import Node
 from recipes.gedit import Gedit
 from recipes.git import Git
@@ -33,6 +33,7 @@ if __name__ == '__main__':
     check_if_root()
     user = get_user()
     execute_recipe(Examples(user))
+    execute_recipe(Apport(user))
     execute_recipe(Packages(user))
     execute_recipe(Bashrc(user))
     execute_recipe(Node(user))
