@@ -15,7 +15,7 @@ class Git(Recipe):
         self.run('git config --global user.email "%s"' % email, False)
         self.run('git config --global color.ui auto', False)
         self.run('git config --global push.default matching', False)
-        self.run('git config --global alias.hist \'log --pretty=format:"%C(yellow)%h%C(reset) %ad %C(magenta)[%an]%C(reset) %C(green)%s%C(reset)%d" --graph --date=short\'', False)
+        self.run('git config --global alias.hist \'log --pretty=format:"%C(yellow)%h%C(reset) %ad %C(green)%s%C(reset) %C(magenta)[%an]%C(reset)%d" --graph --date=short\'', False)
 
     def is_valid(self):
         return os.path.exists(os.path.join(self.home, '.gitconfig'))
