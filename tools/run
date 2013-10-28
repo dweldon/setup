@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # [Gedit Tool]
 # Name=Run
 # Shortcut=<Primary>r
@@ -8,17 +8,14 @@
 # Input=document
 # Save-files=document
 
+PATH=$HOME/local/bin:$PATH
+name=$GEDIT_CURRENT_DOCUMENT_NAME
 
-export PATH=$HOME/local/bin:$PATH
-
-if [ "$(echo $GEDIT_CURRENT_DOCUMENT_NAME | grep '\.coffee$')" ]; then
-  coffee $GEDIT_CURRENT_DOCUMENT_NAME
-elif [ "$(echo $GEDIT_CURRENT_DOCUMENT_NAME | grep '\.js$')" ]; then
-  node $GEDIT_CURRENT_DOCUMENT_NAME
-elif [ "$(echo $GEDIT_CURRENT_DOCUMENT_NAME | grep '\.py$')" ]; then
-  python $GEDIT_CURRENT_DOCUMENT_NAME
-elif [ "$(echo $GEDIT_CURRENT_DOCUMENT_NAME | grep '\.rb$')" ]; then
-  ruby $GEDIT_CURRENT_DOCUMENT_NAME
-else
-  echo "I do not know how to run ${GEDIT_CURRENT_DOCUMENT_NAME}"
-fi
+case "${name##*.}" in
+  coffee) coffee $name;;
+  js    ) node $name;;
+  py    ) python $name;;
+  rb    ) ruby $name;;
+  sh    ) bash $name;;
+  *     ) echo "I do not know how to run $name";;
+esac
